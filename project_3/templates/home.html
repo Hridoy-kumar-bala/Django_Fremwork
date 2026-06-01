@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to my first Django App</h1>
+    <h2>AUTHOR: {{author}}</h2>
+    <h2>AGE: {{age}}</h2>
+    <h2>{{lst}}</h2>
+    <h2>{{TEXT}}</h2>
+    <h1>{{birthday | date:"D d M Y"}}</h1>
+    <p>{{'happy coding. python is fun it is very easy to begganer for learning programming language...' | truncatechars:20}}</p>
+    <p>{{'happy coding. python is fun it is very easy to begganer for learning programming language...' | truncatewords:5}}</p>
+    {% comment %} <h1>{{"publication" | default:"an empty string"}}</h1> {% endcomment %}
+    <h1>{{TEXT | length }}</h1>
+    <h1>{{TEXT | upper }}</h1>
+    <h1>{{TEXT | title }}</h1>
+    <h1>{{ lst | linenumbers }}</h1>
+{{lst}}
+ {% comment %} join function {% endcomment %}
+    <h1>{{lst | join:" "}}</h1>
+
+    {% comment %} Loop statement {% endcomment %}
+    {% for course_item in course %}
+        <h2>COURSE ID:{{course_item.id}}, COURSE NAME:{{course_item.name}}, PRICE: {{course_item.price}}</h2>
+    {% endfor %}
+    {% comment %} Condition statement {% endcomment %}
+    {% if age > 18 %}
+        <h2>You are an adult</h2>
+    {% else %}
+        <h2>You are a minor</h2>
+    {% endif %}
+
+</body>
+</html>
