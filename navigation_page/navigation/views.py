@@ -3,10 +3,10 @@ from django.shortcuts import render
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'navigation/index.html')
+    return render(request,'index.html')
 
 def about(request):
-    return render(request, 'navigation/about.html')
+    return render(request,'about.html')
 
 def contact(request):
-    return render(request, 'navigation/contact.html')
+    return render(request,'contact.html')
