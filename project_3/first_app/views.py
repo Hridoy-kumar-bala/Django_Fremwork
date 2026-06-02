@@ -1,14 +1,23 @@
-import datetime
-
 from django.shortcuts import render
-from django.http import HttpResponse
-
+import datetime
+# Create your views here.
 def home(request):
-    # return HttpResponse("Home Page Working")
-    d={'author':'Hridoy','age': 22, 'lst': ['python','is','best'],'birthday': datetime.datetime.now(), 'publication':'', 'course': [
-        {'id': 1, 'name': 'Python', 'price': 1000},
-        {'id': 2, 'name': 'Django', 'price': 2000},
-        {'id': 3, 'name': 'React', 'price': 3000},
-    ], 'TEXT':'THIS IS HRIDOY KUMAR BALA'}
-
-    return render(request,'home.html',d)
+    d = {'author' : 'Rahim', 'age' : 5, 'lst' : ['python','is','best'], 'birthday' : datetime.datetime.now(), 'val' : '' ,'courses' : [
+        
+        {
+            'id' : 1,
+            'name' : 'Python',
+            'fee' : 5000
+        },
+        {
+            'id' : 2,
+            'name' : 'Django',
+            'fee' : 10000 
+        },
+        {
+            'id' : 3,
+            'name' : 'C',
+            'fee' : 1000 
+        },
+    ]}
+    return render(request, 'first_app/home.html', d)
