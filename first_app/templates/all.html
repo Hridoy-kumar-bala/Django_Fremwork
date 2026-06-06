@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+    <a href="{% url 'from' %}" class="btn btn-success">
+        From
+    </a>
+
+    <h2>All Submitted Data</h2>
+
+    <table class="table table-bordered mt-3">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Comment</th>
+                <th>Agree</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in data %}
+
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.comment }}</td>
+                <td>{{ item.agree }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
