@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="/first_app/">Home Page</a></h1>
+    <h1><a href="/contact/">Contact Page</a></h1>
+    <h1><a href="/about/">About Page</a></h1>
+    <h2>APP Page</h2>
+    <h3>Name: {{ name | capfirst }}</h3>
+    {% comment %} ADD {% endcomment %}
+    <h3>{{ age | add:"2" }}</h3>
+    {% comment %} DATE {% endcomment %}
+    <h3>{{ birthday | date:"D d M Y" }}</h3>
+    <h3>{{ publication | default:"nothing" }}</h3>
+    <h3>{{ name | length }}</h3>
+    <h3>{{ name | upper }}</h3>
+    <h3>{{ name | lower }}</h3>
+    <h3>{{ skills | title }}</h3>
+    <h3>{{ lst | join:" _ " }}</h3>
+    <h3>{{ description | addslashes }}</h3>
+    <h3>{{ name | center:"15" }}</h3>
+    <h3>{{ description | truncatechars:"50" }}</h3>
+    <h3>{{ name | cut:"a" }}</h3>
+    <h3>{{ course | dictsort:"price" }}</h3>
+    <h3>{{ description | truncatewords:"15" }}</h3>
+    <h3>{{ age | divisibleby:"2" }}</h3>
+    <h3>{{ name | escape }}</h3>
+    <h3>{{ value | filesizeformat }}</h3>
+    <h3>{{ skills | first }}</h3>
+    <h3>{{ skills | last }}</h3>
+    <h3>{{ skills | linenumbers }}</h3>
+    <h3>{% for i in skills %}
+        <p>{{ forloop.counter }}.{{ i }}</p>
+    {% endfor %}</h3>
+    <h3>{{ name | length }}</h3>
+    <h3>{{ name | make_list }}</h3>
+    <h3>{{ name | random }}</h3>
+    <h3>{{ skills | slice:"2" }}</h3>
+    <h3>{{ name | slugify }}</h3>
+
+
+
+</body>
+</html>
