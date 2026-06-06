@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2>Submitted Data</h2>
+
+    <p><b>Name:</b> {{ data.name }}</p>
+    <p><b>Comment:</b> {{ data.comment }}</p>
+    <p><b>Email:</b> {{ data.email }}</p>
+    <p><b>Agree:</b> {{ data.agree }}</p>
+    <p><b>Date:</b> {{ data.date }}</p>
+    <p><b>Birth Date:</b> {{ data.birth_date }}</p>
+    <p><b>Value:</b> {{ data.value }}</p>
+    <p><b>First Name:</b> {{ data.first_name }}</p>
+    <p><b>Day:</b> {{ data.day }}</p>
+    <p><b>Favorite Color:</b> {{ data.favorite_color }}</p>
+    <p><b>Favorite Colors:</b> {{ data.favorite_colors }}</p>
+
+</div>
+
+{% endblock %}
