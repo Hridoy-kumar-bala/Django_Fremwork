@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3 class= "d-flex justify-content-center" >Form</h3>
+<div class="d-flex ">
+
+<form method="post">
+    {% csrf_token %}
+        {{ form}}
+    <button type="submit">Submit</button>
+</form>
+</div>
+
+{% endblock %}
