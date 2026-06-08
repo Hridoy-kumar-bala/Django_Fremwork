@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Edit Album & Musician</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <h4>Album Info</h4>
+        {{ album_form|crispy }}
+
+        <h4 class="mt-3">Musician Info</h4>
+        {{ musician_form|crispy }}
+
+        <button class="btn btn-success mt-3">Save Changes</button>
+    </form>
+
+</div>
+
+{% endblock %}
