@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>welcome to login page</h1>
+    {% load crispy_forms_tags %}
+    <form method="POST" style ="width:50%; margin:auto ">
+        {% comment %} from ta k srf_token  na korle form valid hoi na{% endcomment %}
+        {% csrf_token %}  
+
+        <div class="m-4">
+        {% if form.non_field_errors %}
+        {% for er in form.non_field_errors  %}
+            <p class="bg-danger text-white p-3">{{er}}</p>
+        {% endfor %}
+        {% endif %}
+
+        {% for fm in form %}
+        </div>
+        <div>
+            {{fm.label_tag}}
+
+            {{fm}}
+            {{fm.errors|striptags}}  {% comment %} error help text dekhanor jonno {% endcomment %}
+        </div>
+        
+        
+        {% endfor %}
+        <br/>
+        <button class="btn btn-warning" type ="submit">login</button>
+    </form>
+
+{% endblock %}

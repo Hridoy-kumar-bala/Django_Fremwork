@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+    {% if messages %}
+    {% for m in messages %}
+    <small {% if m.tags %} class='{{m.tags}}' {% endif %}>  {{m}}</small>
+    {% endfor %}
+    {% endif%}
+    <h1>Hello, world!</h1>
+    {% load crispy_forms_tags %}
+    <form method="POST" style ="width:50%; margin:auto ">
+        {% csrf_token %}  
+        {% comment %} from ta k srf_token  na korle form valid hoi na{% endcomment %}
+        {% for fm in form %}
+        <div>
+            {{fm.label_tag}}
+
+            {{fm}}
+            {{fm.errors|striptags}}  {% comment %} error help text dekhanor jonno {% endcomment %}
+        </div>
+        
+        
+        {% endfor %}
+        <br/>
+        <button class="btn btn-primary" type ="submit">Submit</button>
+        <br>
+        <small>  Already have an accunt <a href={% url 'login' %}> login </a> </small>
+    </form>
+
+
+{% endblock %}
