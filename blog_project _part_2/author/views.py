@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm,Set
 from django.contrib.auth import authenticate,login,logout,update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from posts.models import Post
 # Create your views here.
 # def add_author(request):
 #     if request.method=='POST':
@@ -50,23 +51,41 @@ def user_login(request):
     return render(request, 'register.html', {'form': form, 'type':'Login'})
 @login_required
 def profile(request):
+    data =Post.objects.filter(author=request.user)
+    return render(request,'profile.html', {'data': data})
+
+def pass_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user,data= request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Password Update successfully")
+            update_session_auth_hash(request,form.user) #password update korbe
+            return redirect('profile')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request,'passchange.html',{'form':form})
+
+@login_required
+def edit_profile(request):
     if request.method == 'POST':
         profile_form = form.ChangeUserForm(request.POST, instance = request.user)
         if profile_form.is_valid():
-            use = profile_form.save()
+            user = profile_form.save()
             messages.success(request, "accound change successfully")
                 # messages.warning(request, "worning")
                 # messages.info(request, "infor")
             
-            return redirect('profile')
+            return redirect('update_profile')
                 # print("Saved Successfully")
                 # print(use)
     else:
-        profile_form = form.ChangeUserForm(request.user)
-    return render(request,'profile.html',{'form':profile_form})
-
-    
-
+        profile_form = form.ChangeUserForm(instance =request.user)
+    return render(request,'update_profile.html',{'form':profile_form})
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('user_login')
 
 
 # def userlogout(request):
@@ -98,22 +117,6 @@ def profile(request):
 #         return render(request,'passchage.html',{'form':form})
 #     else:
 #         return redirect('login')
-# def change_user_data(request):
-#     if request.user.is_authenticated:
-#         if request.method == 'POST':
-#             form = ChangeUser(request.POST, instance = request.user)
-#             if form.is_valid():
-#                 messages.success(request, "accound change successfully")
-#                 # messages.warning(request, "worning")
-#                 # messages.info(request, "infor")
-#                 use = form.save()
-#                 # print("Saved Successfully")
-#                 # print(use)
-#         else:
-#             form = ChangeUser()
-#         return render(request,'profile.html',{'form':form})
-#     else:
-#         return redirect('signup')
 
 
 

@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-v#3$-hiqzg&7rq-h&h_+e0kgcx)4qdsm1o5zr@5nn_&^d)kj5('
-LOGIN_URL = 'author/login/'
+LOGIN_URL = '/author/login/'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -124,3 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
