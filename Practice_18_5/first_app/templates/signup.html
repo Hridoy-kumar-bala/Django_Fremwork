@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block contact %}
+<form method="POST" style="width:50%; margin:auto">
+    {% csrf_token %}
+    <div>
+        {{form}}
+        <button type="submit">Sign Up</button>
+    </div>
+</form>
+
+
+{% endblock %}
+
+
+
+

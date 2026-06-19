@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block contact %}
+
+<div class="container mt-5">
+
+    <h2 class="text-center">Login</h2>
+
+    <form method="POST" style="width:50%; margin:auto;">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            Login
+        </button>
+    </form>
+
+</div>
+
+{% endblock %}
